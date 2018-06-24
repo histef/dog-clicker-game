@@ -5,6 +5,7 @@ body {
 }
 
 div.canvas {
+	position: relative;
 	margin-left: auto;
 	margin-right: auto;
 	width: 1050px;
@@ -12,4 +13,11 @@ div.canvas {
 	background-image: url('img/estate-grass-meadow-7174.jpg');
 	background-repeat:no-repeat;
 	border: 5px solid white;
+}
+
+img.dog {
+	position: absolute;
+	bottom: 50px;
+	left: 20%;
+	width: 100px;
 }

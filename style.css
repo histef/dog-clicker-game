@@ -1,0 +1,15 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #cee;
+}
+
+div.canvas {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1050px;
+	height: 634px;
+	background-image: url('img/estate-grass-meadow-7174.jpg');
+	background-repeat:no-repeat;
+	border: 5px solid white;
+}

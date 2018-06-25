@@ -1,6 +1,26 @@
 const dog = document.querySelector('.dog');
 let count = 0;
 
+//timer
+let mins = 0;
+let secs = 59;
+let interval;
+let isGameOn = false;
+
+function timer() {
+    if (!isGameOn) {
+        interval = setInterval(function() {
+            document.querySelector('.timer').innerHTML = `${mins} : ${secs}`;
+            secs--;
+            if (secs % 60 === 0) {
+                mins--;
+                secs = 0;
+            }
+        }, 1000);
+        isGameOn = true;
+    };
+}
+
 //randomly choose dog location
 function moveDog(){
 	dog.style.bottom = Math.floor(Math.random()*(350-35)+35) + 'px';
@@ -57,6 +77,7 @@ function dogTalk(){
 
 //Running the game
 dog.addEventListener('click', function(){
+	timer();
 	moveDog();
 	counter();
 	changeSize();

@@ -28,5 +28,18 @@ body {
 	height: 50px;
 	text-align: center;
 	font-family: 'Indie Flower', cursive;
-	font-size: 25px
+	font-size: 25px;
+}
+
+.talk {
+	visibility: hidden;
+	position: absolute;
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
+	display: inline;
+	border: 3px solid black;
+	border-radius: 20px;
+	background-color: white;
+	padding: 5px 10px;
+	margin: 0;
 }

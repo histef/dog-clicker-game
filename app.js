@@ -10,7 +10,7 @@ let isGameOn = false;
 function timer() {
     if (!isGameOn) {
         interval = setInterval(function() {
-            document.querySelector('.timer').innerHTML = `${mins} : ${secs}`;
+            document.querySelector('.timer').textContent = `${mins} : ${secs}`;
             secs--;
             if (secs === 0) {
 				clearInterval(interval);
@@ -27,7 +27,7 @@ function moveDog(){
 	dog.style.left = Math.floor(Math.random()*(850-200)+200) + 'px';
 }
 
-//Count tracker
+//count tracker
 function counter(){
 	document.querySelector('.count').textContent = count;
 }
@@ -87,7 +87,7 @@ function gameOverModal() {
 }
 
 playAgainBtn.onclick = function() {
-    //reset();
+    reset();
     modal.style.display = "none";
 };
 
@@ -101,14 +101,23 @@ window.onclick = function(e) {
     };
 };
 
+function reset(){
+	document.querySelector('.timer').textContent = "1:00";
+	document.querySelector('.count').textContent = 0;
+	secs = 59;
+	count = 0;
+	timer();
+	isGameOn = false;
+}
+
 //Running the game
 dog.addEventListener('click', function(){
+	count++;
 	timer();
 	moveDog();
 	counter();
 	changeSize();
 	dogTalk();
-	count++;
 });
 
 changeLocation();

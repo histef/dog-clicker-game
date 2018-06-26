@@ -12,13 +12,13 @@ function timer() {
         interval = setInterval(function() {
             document.querySelector('.timer').innerHTML = `${mins} : ${secs}`;
             secs--;
-            if (secs % 60 === 0) {
-                mins--;
-                secs = 0;
-            }
+            if (secs === 0) {
+				clearInterval(interval);
+				gameOverModal();
+	        }
         }, 1000);
         isGameOn = true;
-    };
+    	};
 }
 
 //randomly choose dog location
@@ -74,6 +74,32 @@ function dogTalk(){
     getXNumber = Number(getXNumber) - 75;
     talk.style.left = (getXNumber + 'px');
 }
+
+// Win Modal, Basic modal code is attributed to w3schools.com
+const modal = document.querySelector('.modal');
+const playAgainBtn = document.querySelector('.play-again-btn');
+const closeBtn = document.querySelector(".closeBtn");
+
+function gameOverModal() {
+    const finalCount = document.querySelector('.final-count');
+    finalCount.innerHTML = count;
+    modal.style.display = "block";
+}
+
+playAgainBtn.onclick = function() {
+    //reset();
+    modal.style.display = "none";
+};
+
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+};
+
+window.onclick = function(e) {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    };
+};
 
 //Running the game
 dog.addEventListener('click', function(){
